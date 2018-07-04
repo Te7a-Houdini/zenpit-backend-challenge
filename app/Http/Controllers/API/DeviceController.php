@@ -63,6 +63,9 @@ class DeviceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Device::findOrFail($id)->delete();
+
+        //no content response
+        return response('', 204);
     }
 }
