@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
     {
         if ($request->wantsJson() && $exception instanceof ModelNotFoundException) {
             return response()->json([
-                'message' => 'the resouce you are looking for not found'
+                'message' => trans('messages.resource_not_found')
             ], 404);
         }
 
