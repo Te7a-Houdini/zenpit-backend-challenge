@@ -41,4 +41,12 @@ class DevicesTest extends TestCase
             'data' => ['name' => 'updated device name'],
         ]);
     }
+
+    public function test_delete_device()
+    {
+        $device = factory(Device::class)->create();
+
+        $this->json('DELETE', '/api/devices/' . $device->id)
+            ->assertStatus(204);
+    }
 }
