@@ -67,4 +67,20 @@ class DevicesTest extends TestCase
                 ] ,
             ]);
     }
+
+    public function test_showing_single_device()
+    {
+        $device = factory(Device::class)->create();
+        
+        $this->json('GET', '/api/devices/' . $device->id)
+            ->assertStatus(200)
+            ->assertJson([
+                'data' => [
+                    'id' => $device->id,
+                    'name' => $device->name,
+                    'longitude' => $device->longitude,
+                    'latitude' => $device->latitude
+                ]
+            ]);
+    }
 }
