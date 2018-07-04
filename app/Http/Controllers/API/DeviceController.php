@@ -53,9 +53,16 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DeviceRequest $request, $id)
     {
-        //
+        return new DevicesResource(
+            tap(
+                Device::findOrFail($id),
+                function ($device) use ($request) {
+                    $device->update($request->validated());
+                }
+            )
+        );
     }
 
     /**
