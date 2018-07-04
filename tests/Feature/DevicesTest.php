@@ -49,4 +49,22 @@ class DevicesTest extends TestCase
         $this->json('DELETE', '/api/devices/' . $device->id)
             ->assertStatus(204);
     }
+
+    public function test_listing_devices()
+    {
+        factory(Device::class)->create();
+
+        factory(Device::class)->create();
+
+        $this->json('GET', '/api/devices')
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                'data' =>
+                [
+                    '*' => [
+                            'id' ,'name' , 'battery_status','longitude','latitude'
+                        ]
+                ] ,
+            ]);
+    }
 }
