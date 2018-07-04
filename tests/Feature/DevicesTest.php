@@ -8,13 +8,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class DevicesTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    public function test_create_device()
     {
-        $this->assertTrue(true);
+        $this
+        ->json('POST', '/api/devices', [
+            'name' => 'created test device',
+            'battery_status' => 'full',
+            'longitude' => '333',
+            'latitude' => '4766'
+        ])
+        ->assertStatus(201)
+        ->assertJson([
+            'data' => ['name' => 'created test device'],
+        ]);
     }
 }
