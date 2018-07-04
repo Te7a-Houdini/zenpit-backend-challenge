@@ -24,9 +24,9 @@ clone the project & run the following commands :-
 
 - run php artisan serve (to open up a local dev server)
 
-- open your rest client and try to hit (localhost:8000/api/devices)
+- open your rest client and try to hit (http://localhost:8000/api/devices)
 
-note that (localhost:8000) can be changeable based on the output of php artisan serve command
+note that (http://localhost:8000) can be changeable based on the output of php artisan serve command
 
 
 ## Testing
@@ -34,3 +34,9 @@ note that (localhost:8000) can be changeable based on the output of php artisan 
 run the following command
 
 - composer test
+
+## API Documentation
+
+the api documentation can be found in (http://localhost:8000/docs)
+
+the used package to generate documentation is [laravel api doc generator](https://github.com/mpociot/laravel-apidoc-generator)
