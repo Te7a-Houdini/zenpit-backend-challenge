@@ -150,6 +150,8 @@ return [
         /*
          * Package Service Providers...
          */
+        
+        Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
 
         /*
          * Application Service Providers...
