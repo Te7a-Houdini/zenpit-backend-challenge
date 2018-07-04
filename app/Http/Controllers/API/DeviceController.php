@@ -38,7 +38,9 @@ class DeviceController extends Controller
      */
     public function show($id)
     {
-        //
+        return new DevicesResource(
+            Device::findOrFail($id)
+        );
     }
 
     /**
