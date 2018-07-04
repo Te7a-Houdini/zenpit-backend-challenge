@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DevicesResource;
+use App\Device;
 
 class DeviceController extends Controller
 {
@@ -14,7 +16,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
+        return DevicesResource::collection(Device::paginate(5));
     }
 
     /**
